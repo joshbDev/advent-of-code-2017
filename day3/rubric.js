@@ -18,3 +18,5 @@ const whichCorner = Math.floor(howMuchLeft / width);
 const finalIn = howMuchLeft - (whichCorner * width);
 const awayFromMiddle = (width / 2) - finalIn;
 
+const answer = awayFromMiddle + howManyOut;
+console.log('SOLVED ANSWER', answer);
