@@ -21,3 +21,20 @@ const allSum = inputArrayCleaned.reduce((prev, curr) => {
   return newPrev;
 }, 0)
 console.log(allSum);
+
+const dividedSum = inputArrayCleaned.reduce((prev, curr) => {
+  curr.forEach((item, index) => {
+    const convertedNum = Number(item);
+    for (let x = index + 1; x < curr.length; x++) {
+      const compareNumber = Number(curr[x]);
+      if (convertedNum > compareNumber && convertedNum % compareNumber === 0) {
+        prev += convertedNum / compareNumber;
+      }
+      if (convertedNum < compareNumber && compareNumber % convertedNum === 0) {
+        prev += compareNumber / convertedNum;
+      }
+    }
+  });
+  return prev;
+}, 0);
+console.log(dividedSum);

@@ -5,8 +5,9 @@ const inputArray = input.split('');
 const inputArrayCleaned = inputArray.map((item) => {
   return Number(item);
 })
+
+
 const allSum = inputArrayCleaned.reduce((prev, curr, index) => {
-  console.log(prev);
   const prevInput = inputArrayCleaned[index - 1];
   if (!prevInput || !curr || isNaN(curr)) {
     return prev;
@@ -20,3 +21,15 @@ const allSum = inputArrayCleaned.reduce((prev, curr, index) => {
   return prev;
 }, 0);
 console.log(allSum);
+
+function sumCircularOpposites(list) {
+  let sum = 0;
+  for(let i=0; i<(list.length/2); i++) {
+    const first = list[i];
+    const second = list[i + list.length/2];
+    if(first === second) sum += (first * 2);
+  }
+  return sum;
+}
+
+console.log('SECOND PART ANSWER', sumCircularOpposites(inputArrayCleaned));
