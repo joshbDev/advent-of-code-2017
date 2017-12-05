@@ -5,14 +5,14 @@ const WIDTH_ADDED_PER_ROUND = 2;
 let howManyOut = 0;
 let width = 0;
 
-function calculateNewCircle(input, trackingHeight) {
-  const newTrack = trackingHeight + ADDED_PER_ROUND;
-  if (input + trackingHeight > answerNumber) {
+function calculateNewCircle(input, sizeOfCircle) {
+  const newSize = sizeOfCircle + ADDED_PER_ROUND;
+  if (input + sizeOfCircle > answerNumber) {
     return input;
   }
   howManyOut++;
   width = width + WIDTH_ADDED_PER_ROUND;
-  return calculateNewCircle(input + trackingHeight, newTrack);
+  return calculateNewCircle(input + sizeOfCircle, newSize);
 }
 const amount = calculateNewCircle(1, 0);
 const howMuchLeft = answerNumber - amount;
