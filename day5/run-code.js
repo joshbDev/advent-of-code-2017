@@ -7,7 +7,11 @@ let currPosition = 0;
 function runFunction(checkIndex) {
   const checkingIndex = inputArrayCleaned[checkIndex];
   currPosition = currPosition + checkingIndex;
-  inputArrayCleaned[checkIndex] = inputArrayCleaned[checkIndex] + 1;
+  if (inputArrayCleaned[checkIndex] < 3) {
+    inputArrayCleaned[checkIndex] = inputArrayCleaned[checkIndex] + 1;
+  } else if (inputArrayCleaned[checkIndex] >= 3) {
+    inputArrayCleaned[checkIndex] = inputArrayCleaned[checkIndex] - 1;
+  }
   howManyMoves++;
 }
 while(typeof inputArrayCleaned[currPosition] !== 'undefined') {
