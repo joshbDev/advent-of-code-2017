@@ -9,7 +9,7 @@
       "type": "node",
       "request": "launch",
       "name": "Launch Program",
-      "program": "${workspaceFolder}/day5/run-code.js"
+      "program": "${workspaceFolder}/day9/run-code.js"
     }
   ]
 }
