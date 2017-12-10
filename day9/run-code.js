@@ -1,11 +1,12 @@
 const fs = require('fs');
 
-const input = fs.readFileSync('./input', 'utf8');
+const input = fs.readFileSync('./input').toString('utf-8').trim();
 
 let indexNum = 1;
 let isSkipped = false;
 let isInGarbage = false;
 let garbageChars = 0;
+
 const result = input.split('').reduce((prev, curr, index) => {
   if (isSkipped) {
     isSkipped = false;
@@ -15,18 +16,19 @@ const result = input.split('').reduce((prev, curr, index) => {
     isSkipped = true;
     return prev;
   }
-  if (curr === '<') {
-    isInGarbage = true;
+  if (isInGarbage && curr !== '>') {
+    garbageChars++;
     return prev;
   }
   if (isInGarbage && curr === '>') {
     isInGarbage = false;
     return prev;
   }
-  if (isInGarbage) {
-    garbageChars++;
+  if (curr === '<') {
+    isInGarbage = true;
     return prev;
   }
+
   if (curr === '{') {
     prev += indexNum;
     indexNum++;
