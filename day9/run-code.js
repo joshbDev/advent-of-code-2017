@@ -28,7 +28,6 @@ const result = input.split('').reduce((prev, curr, index) => {
     isInGarbage = true;
     return prev;
   }
-
   if (curr === '{') {
     prev += indexNum;
     indexNum++;
